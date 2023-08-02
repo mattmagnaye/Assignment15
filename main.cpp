@@ -10,39 +10,33 @@
 */
 #include<iostream>
 #include<cstring>
+using namespace std;
 
-// Recursive function to reverse array within given bounds
+// Function to reverse array elements within given bounds (inclusive).
 void reverseWithinBounds(char arr[], int start, int end) {
-    // base case
-    if(start >= end) 
+    if(start >= end)  // Base condition to break recursion when start meets or crosses end.
         return;
-
-    // swap elements
-    std::swap(arr[start], arr[end]);
-
-    // Recursive call for remaining array
-    reverseWithinBounds(arr, start + 1, end - 1);
+    swap(arr[start], arr[end]);  // Swap elements at positions start and end.
+    reverseWithinBounds(arr, start + 1, end - 1);  // Recursive call with updated bounds.
 }
 
-// Function to reverse a C string
+// Function to reverse a null-terminated C string.
 void reverseCString(char* str) {
-    int n = strlen(str);
-    // calling the recursive function with full length of string
-    reverseWithinBounds(str, 0, n-1);
+    int n = strlen(str);  // Get length of string.
+    reverseWithinBounds(str, 0, n-1);  // Call to reverseWithinBounds with full bounds of the string.
 }
 
 int main() {
-    // testing reverseWithinBounds
-    char arr[] = {'A', 'B', 'C', 'D', 'E'};
-    reverseWithinBounds(arr, 1, 4);
+    char arr[] = {'A', 'B', 'C', 'D', 'E'};  // Test array.
+    reverseWithinBounds(arr, 1, 4);  // Call to reverse elements within bounds 1 and 4.
+    // Loop through array to print elements and their indices.
     for(char c : arr)
-        std::cout << c << " ";
-    std::cout << std::endl;
+        cout << "a[" << (&c - arr) << "] == '" << c << "' ";
+    cout << endl;
 
-    // testing reverseCString
-    char str[] = "Hello, World!";
-    reverseCString(str);
-    std::cout << str << std::endl;
+    char str[] = "Hello, World!";  // Test string.
+    reverseCString(str);  // Call to reverse string.
+    cout << "Reversed C string: " << str << endl;  // Print reversed string.
 
     return 0;
 }
