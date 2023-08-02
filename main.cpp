@@ -1,3 +1,13 @@
+/*
+* Program: main.cpp (Assignment 15P: Recursion)
+* Author: Matt Aaron Magnaye
+* Instructor: Professor David Harden
+* Date: 08/02/2023
+* Description: Write a recursive function named reverseWithinBounds 
+*              that has an argument that is an array of characters 
+*              and two arguments that are bounds on array indices. 
+*
+*/
 #include<iostream>
 #include<cstring>
 
